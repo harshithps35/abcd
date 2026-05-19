@@ -1,0 +1,397 @@
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  padding: 120px 48px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.heroBg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--gradient-hero);
+}
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.glowOrb1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34,197,94,0.08), transparent 70%);
+  top: -200px;
+  right: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+.glowOrb2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,0.06), transparent 70%);
+  bottom: -200px;
+  left: -100px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+.heroContent {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.heroVisual {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.heroBadge {
+  display: inline-block;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.2);
+  color: var(--accent-green);
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.heroTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.heroGradient {
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.heroDesc {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+.heroBtns {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+.heroStats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.heroStat {
+  display: flex;
+  flex-direction: column;
+}
+.heroStatValue {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.heroStatLabel {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* 3D Pitch Preview */
+.pitchPreview {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 3/4;
+  margin: 0 auto;
+  perspective: 800px;
+  position: relative;
+}
+.pitchSurface {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #5a7c3a 0%, #4a6b2e 30%, #c4a24d 50%, #b8963e 70%, #4a6b2e 90%, #5a7c3a 100%);
+  border-radius: 16px;
+  transform: rotateX(25deg) rotateY(-5deg);
+  position: relative;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(34,197,94,0.1);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.pitchStrip {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 80%;
+  background: linear-gradient(180deg, #d4b062 0%, #c9a54a 40%, #b8923a 60%, #c9a54a 100%);
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.pitchCrease1, .pitchCrease2 {
+  position: absolute;
+  left: 30%;
+  width: 40%;
+  height: 2px;
+  background: rgba(255,255,255,0.4);
+}
+.pitchCrease1 { top: 18%; }
+.pitchCrease2 { bottom: 18%; }
+.pitchCrack1, .pitchCrack2, .pitchCrack3 {
+  position: absolute;
+  background: rgba(80,50,20,0.6);
+  border-radius: 1px;
+}
+.pitchCrack1 { left: 48%; top: 35%; width: 2px; height: 40px; transform: rotate(15deg); }
+.pitchCrack2 { left: 55%; top: 55%; width: 1.5px; height: 30px; transform: rotate(-10deg); }
+.pitchCrack3 { left: 44%; top: 60%; width: 1px; height: 25px; transform: rotate(5deg); }
+.stump1, .stump2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 2px;
+}
+.stump1 { top: 14%; }
+.stump2 { bottom: 14%; }
+
+.pitchLabels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.pitchLabel {
+  position: absolute;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: var(--accent-green);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: float 4s ease-in-out infinite;
+}
+.scanLine {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+  box-shadow: 0 0 20px var(--accent-green-glow);
+  animation: scanMove 3s ease-in-out infinite;
+  opacity: 0.7;
+}
+@keyframes scanMove {
+  0%,100% { top: 10%; }
+  50% { top: 85%; }
+}
+
+/* Features */
+.features { position: relative; }
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.sectionBadge {
+  display: inline-block;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.2);
+  color: var(--accent-green);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.featureCard {
+  padding: 32px 28px;
+  text-align: center;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+.featureIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 16px;
+}
+.featureTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.featureDesc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* How It Works */
+.howItWorks { background: rgba(0,0,0,0.2); }
+.steps {
+  display: flex;
+  gap: 0;
+  margin-top: 56px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 240px;
+  max-width: 320px;
+  position: relative;
+  padding: 0 24px;
+}
+.stepNum {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+}
+.stepContent { display: block; }
+.stepTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.stepDesc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.stepConnector {
+  display: none;
+}
+
+/* Venues */
+.venueCard {
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.venueIndicator {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+.venueName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.venueLocation {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+.venueType {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* CTA */
+.cta { padding: 40px 0 80px; }
+.ctaCard {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  padding: 80px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.ctaGlow {
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle at 50% 50%, rgba(34,197,94,0.06), transparent 60%);
+  pointer-events: none;
+}
+.ctaTitle {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  position: relative;
+}
+.ctaDesc {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border-glass);
+  padding: 32px 0;
+}
+.footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footerBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footerLogo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.footerCopy {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 120px 24px 60px;
+    min-height: auto;
+  }
+  .heroTitle { font-size: 2.8rem; }
+  .pitchPreview { max-width: 360px; }
+}
+@media (max-width: 640px) {
+  .heroTitle { font-size: 2rem; }
+  .heroStats { gap: 24px; }
+  .ctaTitle { font-size: 1.6rem; }
+  .ctaCard { padding: 48px 24px; }
+}
