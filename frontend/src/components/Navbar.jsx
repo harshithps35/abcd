@@ -1,6 +1,5 @@
-"use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
@@ -16,7 +15,7 @@ export default function Navbar() {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        <Link href="/" className={styles.logo}>
+        <Link to="/" className={styles.logo}>
           <span className={styles.logoIcon}>🏏</span>
           <span className={styles.logoText}>
             Pitch<span className={styles.logoAccent}>Vision</span>
@@ -24,10 +23,10 @@ export default function Navbar() {
           </span>
         </Link>
         <div className={`${styles.navLinks} ${menuOpen ? styles.open : ""}`}>
-          <Link href="/" className={styles.navLink} onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/analyze" className={styles.navLink} onClick={() => setMenuOpen(false)}>Analyze Pitch</Link>
-          <Link href="/reports" className={styles.navLink} onClick={() => setMenuOpen(false)}>Reports</Link>
-          <Link href="/analyze" className={styles.ctaBtn} onClick={() => setMenuOpen(false)}>
+          <Link to="/" className={styles.navLink} onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/analyze" className={styles.navLink} onClick={() => setMenuOpen(false)}>Analyze Pitch</Link>
+          <Link to="/reports" className={styles.navLink} onClick={() => setMenuOpen(false)}>Reports</Link>
+          <Link to="/analyze" className={styles.ctaBtn} onClick={() => setMenuOpen(false)}>
             Start Analysis →
           </Link>
         </div>

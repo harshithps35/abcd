@@ -1,7 +1,6 @@
-"use client";
 import { useRef, useMemo, Suspense } from "react";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { OrbitControls, Text, Environment } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Text } from "@react-three/drei";
 import * as THREE from "three";
 
 function PitchTerrain({ imageUrl }) {

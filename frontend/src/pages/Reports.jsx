@@ -1,7 +1,6 @@
-"use client";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import styles from "./reports.module.css";
+import styles from "./Reports.module.css";
 
 const SAMPLE_REPORTS = [
   {
@@ -62,7 +61,7 @@ function MiniBar({ value, color }) {
   );
 }
 
-export default function ReportsPage() {
+export default function Reports() {
   const [selected, setSelected] = useState(null);
   const [filter, setFilter] = useState("All");
 
@@ -115,6 +114,12 @@ export default function ReportsPage() {
                   <span className={styles.reportType}>{r.matchType}</span>
                   <span className={styles.reportDominance} style={{ color: r.dominanceColor }}>{r.dominance}</span>
                 </div>
+                <div className={styles.reportToss}>
+                  <span className={styles.reportTossIcon}>{r.toss === "Bowl First" ? "🎳" : "🏏"}</span>
+                  <span className={styles.reportTossText} style={{
+                    color: r.toss === "Bowl First" ? "var(--accent-green)" : "var(--accent-blue)"
+                  }}>{r.toss}</span>
+                </div>
               </div>
             ))}
             {filtered.length === 0 && (
@@ -136,6 +141,25 @@ export default function ReportsPage() {
                   <div className={styles.detailRatingBox}>
                     <span className={styles.detailRatingNum}>{selected.rating}</span>
                     <span className={styles.detailRatingLabel}>/ 10</span>
+                  </div>
+                </div>
+
+                {/* Prominent Toss Recommendation */}
+                <div className={styles.detailTossBanner}>
+                  <div className={styles.detailTossIcon}>
+                    {selected.toss === "Bowl First" ? "🎳" : "🏏"}
+                  </div>
+                  <div className={styles.detailTossInfo}>
+                    <span className={styles.detailTossLabel}>Toss Recommendation</span>
+                    <span className={styles.detailTossValue} style={{
+                      color: selected.toss === "Bowl First" ? "var(--accent-green)" : "var(--accent-blue)"
+                    }}>{selected.toss}</span>
+                  </div>
+                  <div className={styles.detailTossDominance} style={{
+                    color: selected.dominanceColor,
+                    background: `color-mix(in srgb, ${selected.dominanceColor === "var(--accent-green)" ? "#22c55e" : selected.dominanceColor === "var(--accent-purple)" ? "#a855f7" : selected.dominanceColor === "var(--accent-blue)" ? "#3b82f6" : "#f59e0b"} 10%, transparent)`
+                  }}>
+                    {selected.dominance}
                   </div>
                 </div>
 

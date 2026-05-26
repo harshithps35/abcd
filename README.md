@@ -1,37 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PitchVision 3D — Cricket Pitch Analysis Platform
+
+Advanced cricket pitch analysis platform with 3D visualization, AI-driven surface assessment, and strategic match intelligence.
+
+## Project Structure
+
+```
+├── frontend/          # React (Vite) frontend application
+│   ├── src/
+│   │   ├── components/    # Reusable UI components
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── AnalysisPanel.jsx
+│   │   │   └── PitchViewer3D.jsx
+│   │   ├── pages/         # Page-level components
+│   │   │   ├── Home.jsx
+│   │   │   ├── Analyze.jsx
+│   │   │   └── Reports.jsx
+│   │   ├── App.jsx        # Router configuration
+│   │   ├── main.jsx       # Entry point
+│   │   └── index.css      # Global styles & design system
+│   ├── index.html
+│   └── vite.config.js
+│
+├── backend/           # Express.js API server
+│   ├── services/
+│   │   └── pitchAnalysis.js   # Pitch analysis engine
+│   └── server.js              # Express server & routes
+│
+└── README.md
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+
+- npm
 
+### Backend
 ```bash
+cd backend
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+The API will start on `http://localhost:5000`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+The app will start on `http://localhost:5173`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## API Endpoints
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Method | Endpoint         | Description                          |
+|--------|------------------|--------------------------------------|
+| GET    | /api/health      | Health check                         |
+| POST   | /api/analyze     | Analyze a pitch image (multipart)    |
+| GET    | /api/reports     | Get all pitch reports                |
+| GET    | /api/reports/:id | Get a specific report                |
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# abcd
+- **3D Pitch Visualization** — Interactive Three.js terrain model from uploaded images
+- **AI Surface Analysis** — Moisture, grass cover, hardness, crack patterns
+- **Toss Recommendation** — Clear bat first / bowl first decision with reasoning
+- **Player Advantage** — Pace, spin, and batting advantage percentages
+- **Session Forecasts** — Day-by-day pitch behavior predictions
+- **Reports Database** — Historical venue analysis with search & filtering

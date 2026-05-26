@@ -85,8 +85,24 @@
   gap: 12px;
   font-size: 0.75rem;
   color: var(--text-muted);
+  margin-bottom: 8px;
 }
 .reportDominance { font-weight: 600; }
+.reportToss {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-glass);
+}
+.reportTossIcon {
+  font-size: 0.9rem;
+}
+.reportTossText {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+}
 
 /* Detail */
 .reportDetail {
@@ -118,6 +134,58 @@
   -webkit-text-fill-color: transparent;
 }
 .detailRatingLabel { display: block; font-size: 0.75rem; color: var(--text-muted); }
+
+/* Detail Toss Banner */
+.detailTossBanner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.detailTossIcon {
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+.detailTossInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+.detailTossLabel {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+.detailTossValue {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+.detailTossDominance {
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
 .detailBadges {
   display: flex;
   gap: 8px;
@@ -193,4 +261,5 @@
   .pageTitle { font-size: 1.6rem; }
   .detailCard { padding: 20px; }
   .detailMetrics { grid-template-columns: 1fr; }
+  .detailTossBanner { flex-wrap: wrap; }
 }

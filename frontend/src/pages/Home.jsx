@@ -1,7 +1,6 @@
-"use client";
-import Link from "next/link";
-import Navbar from "./components/Navbar";
-import styles from "./page.module.css";
+import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import styles from "./Home.module.css";
 import { useEffect, useState } from "react";
 
 const FEATURES = [
@@ -52,7 +51,7 @@ export default function Home() {
               for batsmen, pace bowlers, and spinners.
             </p>
             <div className={styles.heroBtns}>
-              <Link href="/analyze" className="btn-primary">
+              <Link to="/analyze" className="btn-primary">
                 Analyze a Pitch →
               </Link>
               <a href="#features" className="btn-secondary">
@@ -166,7 +165,7 @@ export default function Home() {
               <div className={styles.ctaGlow}></div>
               <h2 className={styles.ctaTitle}>Ready to Decode Your Next Pitch?</h2>
               <p className={styles.ctaDesc}>Upload a pitch photo and get an AI-powered assessment in seconds.</p>
-              <Link href="/analyze" className="btn-primary" style={{fontSize:'1.1rem',padding:'16px 36px'}}>
+              <Link to="/analyze" className="btn-primary" style={{fontSize:'1.1rem',padding:'16px 36px'}}>
                 Start Free Analysis →
               </Link>
             </div>
